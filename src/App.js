@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import PostForm from './components/PostForm';
+import {Routes, Route} from 'react-router-dom';
+import Registration from './components/Registration';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import About from './components/About';
+import Settings from './components/Settings';
+import SideNav from './components/Sidenav';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default function App() {
+
+    return (
+        <div className="App">
+            <SideNav />
+            <Navbar/>
+            
+            <Routes>
+                <Route path='/' element={<Home />}/>
+                <Route path='/registration' element={<Registration />}/>
+                <Route path='/postform' element={<PostForm  />}/>
+                <Route path='/about' exact element={<About />}></Route>
+                <Route path='/settings' exact element={<Settings />}></Route>
+            </Routes>
+            
+        </div>
+    );
 }
-
-export default App;
